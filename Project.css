@@ -1,0 +1,69 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+body{
+    background-image: url(./89787.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+/* .nav{
+    display: flex;
+    margin: 20px;
+    padding: 10px;
+    justify-content: end;
+    font-size: 20px;
+    color: whitesmoke;
+    border: none;
+    list-style-type: none;
+    text-decoration: none;
+    margin-top: 30px;
+}
+.nav>li>a{
+    color: black;
+    margin: 10px;
+    text-decoration: none;
+    color: whitesmoke;
+}
+.nav>li>a:hover{
+    color: rgb(255, 62, 102);
+} */
+/* .name{
+    color: whitesmoke;
+    margin-top: 15px;
+    margin-right: 780px;
+} */
+.pro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    color: whitesmoke;
+
+    /* Animation properties */
+    animation: slideUpFadeIn 1.5s ease-out forwards; /* 'forwards' keeps the final state */
+    opacity: 0; /* Initial opacity for the fade-in effect */
+}
+.pro1{
+    width: 700px;
+    color: whitesmoke;
+    margin-left: 300px;
+    animation: slideUpFadeIn 1.5s ease-out forwards; /* 'forwards' keeps the final state */
+    opacity: 0; /* Initial opacity for the fade-in effect */
+}
+.pro1>a{
+    color: whitesmoke;
+}
+/* Keyframes for slide-up and fade-in effect */
+@keyframes slideUpFadeIn {
+    0% {
+        transform: translateY(30px); /* Starts slightly below its final position */
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0); /* Ends at the natural position */
+        opacity: 1; /* Fully visible */
+    }
+}
