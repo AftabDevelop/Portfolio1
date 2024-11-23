@@ -1,69 +1,150 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
 }
-body{
+
+body {
     background-image: url(./89787.jpg);
     background-size: cover;
     background-repeat: no-repeat;
+    min-height: 100vh;
+    overflow-x: hidden;
 }
-/* .nav{
-    display: flex;
-    margin: 20px;
-    padding: 10px;
-    justify-content: end;
-    font-size: 20px;
-    color: whitesmoke;
-    border: none;
-    list-style-type: none;
-    text-decoration: none;
-    margin-top: 30px;
-}
-.nav>li>a{
-    color: black;
-    margin: 10px;
-    text-decoration: none;
-    color: whitesmoke;
-}
-.nav>li>a:hover{
-    color: rgb(255, 62, 102);
-} */
-/* .name{
-    color: whitesmoke;
-    margin-top: 15px;
-    margin-right: 780px;
-} */
+
 .pro {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 10px;
     color: whitesmoke;
-
-    /* Animation properties */
-    animation: slideUpFadeIn 1.5s ease-out forwards; /* 'forwards' keeps the final state */
-    opacity: 0; /* Initial opacity for the fade-in effect */
+    animation: titleReveal 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+    opacity: 0;
+    transform-style: preserve-3d;
+    perspective: 1000px;
 }
-.pro1{
+
+.pro1 {
     width: 700px;
     color: whitesmoke;
     margin-left: 300px;
-    animation: slideUpFadeIn 1.5s ease-out forwards; /* 'forwards' keeps the final state */
-    opacity: 0; /* Initial opacity for the fade-in effect */
+    animation: contentSlide 1.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s forwards;
+    opacity: 0;
+    position: relative;
 }
-.pro1>a{
+
+.pro1 > a {
     color: whitesmoke;
+    text-decoration: none;
+    position: relative;
+    transition: all 0.3s ease;
+    padding: 2px 5px;
 }
-/* Keyframes for slide-up and fade-in effect */
-@keyframes slideUpFadeIn {
+
+.pro1 > a:hover {
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    transform: translateY(-2px);
+}
+
+.pro1 > a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #fff, transparent);
+    transition: width 0.3s ease;
+}
+
+.pro1 > a:hover::after {
+    width: 100%;
+}
+
+/* Enhanced Keyframe Animations */
+@keyframes titleReveal {
     0% {
-        transform: translateY(30px); /* Starts slightly below its final position */
+        transform: rotateX(-90deg) translateY(-50px);
         opacity: 0;
     }
+    50% {
+        transform: rotateX(5deg) translateY(10px);
+    }
     100% {
-        transform: translateY(0); /* Ends at the natural position */
-        opacity: 1; /* Fully visible */
+        transform: rotateX(0) translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes contentSlide {
+    0% {
+        transform: translateX(100px);
+        opacity: 0;
+    }
+    60% {
+        transform: translateX(-20px);
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Add responsive design */
+@media (max-width: 1024px) {
+    .pro1 {
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+}
+
+@media (max-width: 768px) {
+    .pro, .pro1 {
+        text-align: center;
+    }
+    
+    .pro1 {
+        width: 95%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/* Optional: Add hover effects for sections */
+.pro:hover {
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.02);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Add smooth transition for all elements */
+* {
+    transition: all 0.3s ease-in-out;
+}
+
+/* Add fade-in animation for page load */
+.page-wrapper {
+    animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
     }
 }

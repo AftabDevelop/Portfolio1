@@ -1,121 +1,200 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
-body{
-    background-image: url(./89787.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
+
+body {
+  background-image: url(./89787.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
-/* Reset */
-body, h1, form, input, textarea, button {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: 'Arial', sans-serif;
-    /* background: linear-gradient(135deg, #6e8efb, #a777e3); */
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-  }
-  
-  /* Container Styling */
-  .container {
-    margin-top: 8vh;
-    padding-top: 100vh;
-    background: rgba(255, 255, 255, 0.1);
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-    /* width: 90%; */
-    width: 450px;
-    height: 500px;
-    max-width: 900px;
-  }
 
+/* Container Animation */
+.container {
+  margin-top: 13vh;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  width: 450px;
+  height: 500px;
+  max-width: 900px;
+  animation: slideUp 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  backdrop-filter: blur(10px);
+  transform-style: preserve-3d;
+}
 
-  h1 {
-    text-align: center;
-    margin-bottom: 1rem;
-    font-size: 2rem;
-    animation: fadeIn 1.5s ease-in-out;
-  }
-  
-  /* Form Group Styling */
-  .form-group {
-    margin-bottom: 1rem;
-  }
-  
-  label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: bold;
-  }
-  
-  input, textarea {
-    width: 100%;
-    padding: 0.8rem;
-    border: none;
-    border-radius: 5px;
-    background: rgba(255, 255, 255, 0.9);
-    color: #333;
-    font-size: 1rem;
-    outline: none;
-    transition: transform 0.2s ease;
-  }
-  
-  input:focus, textarea:focus {
-    transform: scale(1.02);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
-  
-  /* Button Styling */
-  .btn {
-    display: block;
-    width: 100%;
-    padding: 0.8rem;
-    border: none;
-    border-radius: 5px;
-    background: #6e8efb;
-    color: #fff;
-    font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background 0.3s ease, transform 0.2s ease;
-  }
-  
-  .btn:hover {
-    background: #a777e3;
-    transform: translateY(-2px);
-  }
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    h1 {
-      font-size: 1.5rem;
-    }
-  
-    input, textarea, .btn {
-      font-size: 0.9rem;
-    }
-  }
-  
-  /* Animations */
-  @keyframes fadeIn {
-    from {
+/* Heading Animation */
+h1 {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  animation: popIn 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* Form Group Styling with Animations */
+.form-group {
+  margin-bottom: 1rem;
+  opacity: 0;
+  animation: fadeInRight 0.5s ease forwards;
+}
+
+/* Staggered animation delay for form groups */
+.form-group:nth-child(1) { animation-delay: 0.3s; }
+.form-group:nth-child(2) { animation-delay: 0.5s; }
+.form-group:nth-child(3) { animation-delay: 0.7s; }
+.form-group:nth-child(4) { animation-delay: 0.9s; }
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  transform: translateX(-20px);
+  opacity: 0;
+  animation: slideInLabel 0.5s ease forwards;
+  animation-delay: 0.2s;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.9);
+  color: #333;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+input:focus, textarea:focus {
+  transform: scale(1.02) translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Button Styling with Animation */
+.btn {
+  display: block;
+  width: 100%;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 5px;
+  background: #6e8efb;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  animation: bounceIn 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) 1.1s backwards;
+}
+
+.btn:hover {
+  background: #a777e3;
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+/* Keyframe Animations */
+@keyframes slideUp {
+  0% {
+      transform: translateY(100px) rotateX(-10deg);
       opacity: 0;
-      transform: translateY(-20px);
-    }
-    to {
+  }
+  100% {
+      transform: translateY(0) rotateX(0);
       opacity: 1;
-      transform: translateY(0);
-    }
+  }
+}
+
+@keyframes popIn {
+  0% {
+      transform: scale(0) rotate(-180deg);
+      opacity: 0;
+  }
+  80% {
+      transform: scale(1.1) rotate(5deg);
+  }
+  100% {
+      transform: scale(1) rotate(0);
+      opacity: 1;
+  }
+}
+
+@keyframes fadeInRight {
+  0% {
+      opacity: 0;
+      transform: translateX(-20px);
+  }
+  100% {
+      opacity: 1;
+      transform: translateX(0);
+  }
+}
+
+@keyframes slideInLabel {
+  0% {
+      transform: translateX(-20px);
+      opacity: 0;
+  }
+  100% {
+      transform: translateX(0);
+      opacity: 1;
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+      transform: scale(0.3);
+      opacity: 0;
+  }
+  50% {
+      transform: scale(1.05);
+  }
+  70% {
+      transform: scale(0.9);
+  }
+  100% {
+      transform: scale(1);
+      opacity: 1;
+  }
+}
+
+/* Hover Effects */
+.container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+      width: 90%;
+      margin: 20px;
+      height: auto;
   }
   
+  h1 {
+      font-size: 1.5rem;
+  }
+  
+  input, textarea, .btn {
+      font-size: 0.9rem;
+  }
+}
+
+/* Add smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}

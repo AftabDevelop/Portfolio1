@@ -168,31 +168,6 @@ font-size: 3vw;
 
 }
 
-/* .port{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 250px;
-    color: whitesmoke;
-    animation-name: left;
-    animation-duration: 3s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-}
-@keyframes left{
-    from{
-        transform: translateX(0);
-    }
-    to{
-        transform: translateX(200px);
-    }
-}
-
-@keyframes textAnime {
-    100% {
-      text-shadow: 0 0 60px rgba(17, 0, 255,0.458)
-  }
-  } */
   .port {
     display: flex;
     justify-content: center;
